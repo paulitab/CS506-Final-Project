@@ -17,13 +17,13 @@ This project aims to develop a machine learning model that evaluates resumes. Ty
   - https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset
  
 - Salary Trends
-  - Scrape job market data from online platforms like Glassdoor, LinkedIn Salary
-    Insights, or Bureau of Labor Statistics to gather information about current job
-    trends and salary benchmarks.
+  - Job descriptions will be collected using public APIs from various job platforms, including Indeed, GitHub Jobs, and ZipRecruiter. These platforms provide APIs that allow access to job listings, which can simplify the data collection process compared to web scraping.
+  - Utilizing these APIs will enable us to retrieve structured data, including job titles, descriptions, requirements, and salary information, ensuring we have up-to-date and relevant job market insights.
+
 
 - Job Descriptions
-  - Job descriptions will be gathered through scraping or using available datasets to
-    match resumes with the latest job opportunities.
+  - Job descriptions will be collected using the same approach as salary trends -- using public APIs and language processing models to accurately summarize job descriptions 
+  and assign each a score based on their similarities to a candidate's resume.
   - Job requirements may also need to be collected to determine likelihood and job
     description more accurately.
 
@@ -31,6 +31,11 @@ This project aims to develop a machine learning model that evaluates resumes. Ty
 - Implement classification models (e.g. Random Forest, XGBoost) to predict the future job role or industry based on resume features.
 - Build a regression model (e.g. Linear Regression) to estimate the expected salary for a candidate based on their current experience, skills, and qualifications.
 - Use Natural Language Processing (NLP) methods (e.g., TF-IDF, Word Embeddings) to extract key information from resumes and compare it with job descriptions.
+
+## NLP
+  - Collect, clean and preprocess resumes and job descriptions by removing stop words, punctuation, and performing stemming or lemmatization.
+  - Capture the significance of terms in the context of resumes and job listings by utilizing techniques such as TF-IDF to convert text into numerical representations. 
+  - Select the specific metric for assessing similarity between job postings and resumes, such as Jaccard index, or Euclidean distance, to effectively compare textual features and quantify alignment. 
 
 ## Visualizing The Data
 - Create SanKey diagrams to show potential career paths based on the resume analysis.
