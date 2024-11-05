@@ -1,7 +1,7 @@
 # Resume Classification Model
 
 ## Goal
-The goal of this project is to develop a predictive model that can classify a resume into one of 26 specific job categories. Given a resume as input, the model will predict the best-fitting job title, effectively matching the candidate's background to the most suitable role.
+The goal of this project is to develop a predictive model that can classify a resume into one of 24 specific job categories. Given a resume as input, the model will predict the best-fitting job title, effectively matching the candidate's background to the most suitable role.
 
 ---
 
