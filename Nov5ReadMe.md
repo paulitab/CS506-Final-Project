@@ -39,7 +39,7 @@ A pie chart visualization of the category distribution shows that while some imb
 ### Model Selection
 #### **Support Vector Machine (SVM)**:
    - **Rationale**: SVM is chosen for its effectiveness with high-dimensional data, such as the 384-dimensional SBERT embeddings.
-   - **One-vs-Rest Strategy**: Given the multi-class nature of the task, a One-vs-Rest approach is implemented, which builds binary classifiers for each of the 26 job titles. This approach allows the SVM to efficiently differentiate between job categories.
+   - **One-vs-Rest Strategy**: Given the multi-class nature of the task, a One-vs-Rest approach is implemented, which builds binary classifiers for each of the 24 job titles. This approach allows the SVM to efficiently differentiate between job categories.
 
 ### Model Training and Evaluation
 - **Train-Test Split**: We divided the data into training and testing sets to evaluate model performance. Initial experiments used an F1 score for evaluation, with plans to address data imbalance by focusing on metrics like weighted F1 score to ensure fair representation across all job categories.
