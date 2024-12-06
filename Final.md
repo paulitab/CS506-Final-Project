@@ -91,5 +91,3 @@ The confusion matrix visualizes the true vs. predicted labels:
 - **Logistic Regression** emerged as the best-performing model for our high-dimensional dataset due to its efficiency and compatibility with the semantic structure of SentenceTransformer embeddings.
 - **Hyperparameter Tuning** with class balancing significantly improved performance for minority classes, addressing the challenge of data imbalance effectively.
 - The combination of optimized features (resume length, semantic embeddings, and category-specific word counts) and a well-tuned Logistic Regression model provided a robust solution for resume category classification.
-
-Let me know if you need further refinements or additional sections!
