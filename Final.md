@@ -26,7 +26,7 @@ To identify the most suitable model for our **high-dimensional dataset**, we eva
    - Strengths: Effective for non-linear relationships and mixed feature types.
    - Limitations: While it performed reasonably well, it struggled to capture relationships in very high-dimensional data, likely due to sparse or redundant features in the 384+ dimensions.
 
-2. **SVC (Support Vector Classifier)**:
+2. **SVC (Support Vector Classifier)(Was determined to computationally expensive to run)**:
    - **RBF kernel**:
      - While the RBF kernel is effective for non-linear problems, it was computationally expensive and impractical for our high-dimensional data.
    - **Linear kernel**:
@@ -37,7 +37,7 @@ To identify the most suitable model for our **high-dimensional dataset**, we eva
    - Strengths: Logistic Regression handles high-dimensional data efficiently when properly regularized. The linear nature of the embeddings made it well-suited for this dataset.
    - Chosen Model: Its higher accuracy and faster convergence compared to SVC and RandomForest made Logistic Regression the preferred choice for further optimization.
 
-4. **XGBoost**:
+4. **XGBoost(Was determined to computationally expensive to run)**:
    - Performance: Poor convergence due to the very high-dimensional data, resulting in long training times and suboptimal results.
 
 After identifying Logistic Regression as the best-performing model, we conducted **hyperparameter tuning** using **GridSearchCV** to optimize its performance.
