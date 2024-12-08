@@ -31,7 +31,7 @@ This project aims to develop a machine learning model that evaluates resumes. Ty
   - Job requirements may also need to be collected to determine likelihood and job
     description more accurately.
 
-### **Data Processing and Feature Engineering**
+## Data Processing and Feature Engineering
 
 We began with two datasets: the **resume dataset** and the **job description dataset**. After evaluating both, we decided to exclusively use the **resume dataset**, as it was more extensive and mixing the datasets resulted in reduced model performance. The original resume dataset included the following columns: 
 
@@ -49,7 +49,7 @@ In the **feature engineering stage**, we created additional features to enhance 
 
 The enriched dataset provided a well-rounded input for our predictive model, combining basic metadata (resume length), semantic embeddings, and category-specific word counts.
 
-### **Modeling**
+## Modeling
 
 To identify the most suitable model for our **high-dimensional dataset**, we evaluated the following algorithms:
 1. **RandomForest**:
@@ -75,7 +75,7 @@ After identifying Logistic Regression as the best-performing model, we conducted
 
 ---
 
-### **Hyperparameter Tuning**
+## Hyperparameter Tuning
 
 The following hyperparameter grid was explored during GridSearchCV:
 - **`C`**: Inverse of regularization strength (tested values: `[0.01, 0.1, 1, 10, 100]`).
@@ -88,7 +88,7 @@ The best parameters identified were:
 Best Parameters: {'C': 0.01, 'class_weight': 'balanced', 'penalty': 'l2', 'solver': 'saga'}
 ```
 
-#### **Why These Parameters Work Well**:
+## Why These Parameters Work Well:
 1. **`C=0.01`**:
    - Stronger regularization (`C` is the inverse of regularization strength) prevents overfitting, especially in high-dimensional data.
 2. **`class_weight='balanced'`**:
@@ -100,7 +100,7 @@ The tuned model achieved significant improvements, especially in F1-scores for m
 
 ---
 
-### **Results**
+## Results
 
 #### **Classification Report**
 The final classification report highlighted key improvements:
