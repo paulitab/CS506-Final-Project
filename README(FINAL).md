@@ -37,7 +37,7 @@ This project aims to develop a machine learning model that evaluates resumes. Ty
   - Job requirements may also need to be collected to determine likelihood and job
     description more accurately.
 
-## Modelling The Data
+## Modeling The Data
 - Implement classification models (e.g. Random Forest, XGBoost) to predict the future job role or industry based on resume features.
 - Build a regression model (e.g. Linear Regression) to estimate the expected salary for a candidate based on their current experience, skills, and qualifications.
 - Use Natural Language Processing (NLP) methods (e.g., TF-IDF, Word Embeddings) to extract key information from resumes and compare it with job descriptions.
@@ -51,6 +51,13 @@ This project aims to develop a machine learning model that evaluates resumes. Ty
 - Create SanKey diagrams to show potential career paths based on the resume analysis.
 - Visualize salary predictions using box plots, highlighting expected salaries across different industries and experience levels.
 - Present a ranked list of recommended jobs along with visual cues on how well a resume matches each job description using similarity scores.
+
+## Analysis of Visualizations
+![c905cbd5-6c12-4986-b6ef-704920e486a3](https://github.com/user-attachments/assets/37314fc6-b7bf-42c0-9c39-31dad0ffff02)
+- This graph shows us a confusion matrix of the different jobs and how accurately we predicted them with our model.
+- Some jobs had high accuracy predictions, such as Accountant, Aviation, Banking, Construction, and Information-Technology.
+- Some jobs had a wider spread regarding predictions such as Apparel, Advocate, and Public-Relations.
+- And some jobs had low accuracy of predictions, like Agriculture and Arts. 
 
 ## Testing The Data
 - Withhold 20% of the data for testing purposes and use the remaining 80% for model training and validation.
