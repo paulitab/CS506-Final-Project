@@ -61,23 +61,29 @@ This project aims to develop a machine learning model that evaluates resumes. Ty
 
 ## Analysis of Visualizations
 Visualization #1
+
 ![c905cbd5-6c12-4986-b6ef-704920e486a3](https://github.com/user-attachments/assets/37314fc6-b7bf-42c0-9c39-31dad0ffff02)
+
 - This graph shows us a confusion matrix of the different jobs and how accurately we predicted them with our model.
 - Some jobs had high accuracy predictions, such as Accountant, Aviation, Banking, Construction, and Information-Technology.
 - Some jobs had a wider spread regarding predictions such as Apparel, Advocate, and Public-Relations.
 - And some jobs had low accuracy of predictions, like Agriculture and Arts. 
 
 Visualization #2
+
 <img width="851" alt="Screen Shot 2024-12-08 at 2 26 06 PM" src="https://github.com/user-attachments/assets/f63db8a9-535d-4a48-a802-f53781be1766">
+
 - This graph shows us a histogram of resume lengths from the database
 - Most resumes have lengths between 500 and 1500 words
 - The peak frequency is at around 1000 words, meaning most resumes in the dataset have a length of around 1000.
 - The distribution is rightly-skewed, meaning there are fewer resumes with very long lengths compared to shorter ones. 
 
 Visualization #3
+
 ![5a08fd32-7d0e-4844-bb59-3c9c9ac9d716](https://github.com/user-attachments/assets/1851c6e1-09f8-4295-9c5f-16413081a3b8)
 ![7dba9983-5b7d-423e-9309-1779fe4a4845](https://github.com/user-attachments/assets/102fe83e-f9e8-4164-9ba1-e40d097ea42f)
 ![aceb37ef-44f5-48b7-a3e7-0e600d97ffd8](https://github.com/user-attachments/assets/ac23f5e3-0838-486c-91f0-53982bea9b32)
+
 - The provided word clouds represent key skills or terms commonly associated with three distinct domains: Information Technology, Culinary Arts, and Agriculture.
 - For the Information Technology, we will point out that the largest words are different programming languages, which aligns with this jobs importants in the IT domain.
 - For the Culinary Arts, the largest words are words that emphasize the core skills needed in designing and executing culinary offerings. This makes sense since these are the people responsible for creating a beautiful mix of creative, technical, and managerial skills.
