@@ -45,7 +45,14 @@ This project aims to develop a machine learning model that evaluates resumes. Ty
 ## NLP
   - Collect, clean and preprocess resumes and job descriptions by removing stop words, punctuation, and performing stemming or lemmatization.
   - Capture the significance of terms in the context of resumes and job listings by utilizing techniques such as TF-IDF to convert text into numerical representations. 
-  - Select the specific metric for assessing similarity between job postings and resumes, such as Jaccard index, or Euclidean distance, to effectively compare textual features and quantify alignment. 
+  - Select the specific metric for assessing similarity between job postings and resumes, such as Jaccard index, or Euclidean distance, to effectively compare textual features and quantify alignment.
+
+
+## Testing The Data
+- Withhold 20% of the data for testing purposes and use the remaining 80% for model training and validation.
+- Implement cross-validation techniques to ensure the model performs well on unseen data.
+- Test the model on live job postings and resumes collected during the project to evaluate the accuracy of predictions and recommendations.
+
 
 ## Visualizing The Data
 - Create SanKey diagrams to show potential career paths based on the resume analysis.
@@ -67,9 +74,11 @@ Visualization #2
 - The peak frequency is at around 1000 words, meaning most resumes in the dataset have a length of around 1000.
 - The distribution is rightly-skewed, meaning there are fewer resumes with very long lengths compared to shorter ones. 
 
-
-## Testing The Data
-- Withhold 20% of the data for testing purposes and use the remaining 80% for model training and validation.
-- Implement cross-validation techniques to ensure the model performs well on unseen data.
-- Test the model on live job postings and resumes collected during the project to evaluate the accuracy of predictions and recommendations.
-
+Visualization #3
+![5a08fd32-7d0e-4844-bb59-3c9c9ac9d716](https://github.com/user-attachments/assets/1851c6e1-09f8-4295-9c5f-16413081a3b8)
+![7dba9983-5b7d-423e-9309-1779fe4a4845](https://github.com/user-attachments/assets/102fe83e-f9e8-4164-9ba1-e40d097ea42f)
+![aceb37ef-44f5-48b7-a3e7-0e600d97ffd8](https://github.com/user-attachments/assets/ac23f5e3-0838-486c-91f0-53982bea9b32)
+- The provided word clouds represent key skills or terms commonly associated with three distinct domains: Information Technology, Culinary Arts, and Agriculture.
+- For the Information Technology, we will point out that the largest words are different programming languages, which aligns with this jobs importants in the IT domain.
+- For the Culinary Arts, the largest words are words that emphasize the core skills needed in designing and executing culinary offerings. This makes sense since these are the people responsible for creating a beautiful mix of creative, technical, and managerial skills.
+- The third image here shows the words relevant for Agriculture. They are the words that indicate a focus on agricultural productivity and technical expertise in farm equipment. 
