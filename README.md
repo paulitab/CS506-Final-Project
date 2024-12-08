@@ -12,52 +12,117 @@
     - make all (run both make install and make run in one step)
    
 ## Project Description
-This project aims to develop a machine learning model that evaluates resumes. Typically, large companies do not have enough time to open each CV, so they use machine learning algorithms for the Resume Screening task. We want to take this a step beyond and make it so that users can Pre-Screen their Resume and see future possible job titles and salaries bases on their resume. The model will analyze key features such as education, work experience, and skills to forecast future job roles, industries, and salary trajectories. 
+This project aims to develop a machine learning model that evaluates resumes. Typically, large companies do not have enough time to open each CV, so they use machine learning algorithms for the Resume Screening task. We want to take this a step beyond and make it so that users can Pre-Screen their Resume and see future possible job titles. The model will analyze key features such as education, work experience, and skills to forecast future job roles and industries. 
 
 ## Goals
 - Identify and compare common career paths across different industries.
 - Successfully predict the likely next job roles or industries based on a user's current experience, skills, and education.
-- Use regression techniques to estimate the future salary a user can expect based on their resume features.
 - Analyze how different features such as age or years of experience impact career prospects.
 
 ## Data To Be Collected
 - Resume Data
   - Collect resume data (text) from public sources such as Kaggle (below)
-  - The dataset will contain features such as job title, skills, education, years of experience, and salary (depending on available datasets).
+  - The dataset will contain features such as job title, skills, education, and years of experience (depending on available datasets).
   - https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset
- 
-- Salary Trends
-  - Job descriptions will be collected using public APIs from various job platforms, including Indeed, GitHub Jobs, and ZipRecruiter. These platforms provide APIs that allow access to job listings, which can simplify the data collection process compared to web scraping.
-  - Utilizing these APIs will enable us to retrieve structured data, including job titles, descriptions, requirements, and salary information, ensuring we have up-to-date and relevant job market insights.
-
 
 - Job Descriptions
-  - Job descriptions will be collected using the same approach as salary trends -- using public APIs and language processing models to accurately summarize job descriptions 
+  - Job descriptions will be collected using public APIs and language processing models to accurately summarize job descriptions 
   and assign each a score based on their similarities to a candidate's resume.
   - Job requirements may also need to be collected to determine likelihood and job
     description more accurately.
 
-## Modeling The Data
-- Implement classification models (e.g. Random Forest, XGBoost) to predict the future job role or industry based on resume features.
-- Build a regression model (e.g. Linear Regression) to estimate the expected salary for a candidate based on their current experience, skills, and qualifications.
-- Use Natural Language Processing (NLP) methods (e.g., TF-IDF, Word Embeddings) to extract key information from resumes and compare it with job descriptions.
+### **Data Processing and Feature Engineering**
 
-## NLP
-  - Collect, clean and preprocess resumes and job descriptions by removing stop words, punctuation, and performing stemming or lemmatization.
-  - Capture the significance of terms in the context of resumes and job listings by utilizing techniques such as TF-IDF to convert text into numerical representations. 
-  - Select the specific metric for assessing similarity between job postings and resumes, such as Jaccard index, or Euclidean distance, to effectively compare textual features and quantify alignment.
+We began with two datasets: the **resume dataset** and the **job description dataset**. After evaluating both, we decided to exclusively use the **resume dataset**, as it was more extensive and mixing the datasets resulted in reduced model performance. The original resume dataset included the following columns: 
 
+`Index(['ID', 'Resume_str', 'Resume_html', 'Category'], dtype='object')`.
 
-## Testing The Data
-- Withhold 20% of the data for testing purposes and use the remaining 80% for model training and validation.
-- Implement cross-validation techniques to ensure the model performs well on unseen data.
-- Test the model on live job postings and resumes collected during the project to evaluate the accuracy of predictions and recommendations.
+To streamline the data for modeling, we removed the `Resume_html` column because it was essentially a redundant HTML representation of `Resume_str`. The remaining features (`ID`, `Resume_str`, and `Category`) were considered essential for prediction.
 
+In the **feature engineering stage**, we created additional features to enhance the predictive accuracy of the model:
+1. **`resume_length`**:
+   - This feature captures the length of each resume string.
+2. **`SentenceTransform`**:
+   - A multi-dimensional matrix (384 dimensions) generated from the SentenceTransformer model. This embedding represents the semantic meaning of the resume text in a mathematical form.
+3. **`Category_score`**:
+   - A 24-dimensional array derived using a frequency-based keyword dictionary. Each entry in the array represents the count of category-specific keywords present in the resume.
 
-## Visualizing The Data
-- Create SanKey diagrams to show potential career paths based on the resume analysis.
-- Visualize salary predictions using box plots, highlighting expected salaries across different industries and experience levels.
-- Present a ranked list of recommended jobs along with visual cues on how well a resume matches each job description using similarity scores.
+The enriched dataset provided a well-rounded input for our predictive model, combining basic metadata (resume length), semantic embeddings, and category-specific word counts.
+
+### **Modeling**
+
+To identify the most suitable model for our **high-dimensional dataset**, we evaluated the following algorithms:
+1. **RandomForest**:
+   - Performance: Achieved **0.68 accuracy** with default parameters.
+   - Strengths: Effective for non-linear relationships and mixed feature types.
+   - Limitations: While it performed reasonably well, it struggled to capture relationships in very high-dimensional data, likely due to sparse or redundant features in the 384+ dimensions.
+
+2. **SVC (Support Vector Classifier)(Was determined to computationally expensive to run)**:
+   - **RBF kernel**:
+     - While the RBF kernel is effective for non-linear problems, it was computationally expensive and impractical for our high-dimensional data.
+   - **Linear kernel**:
+     - Designed for high-dimensional data, but training time was prohibitively long due to the complexity introduced by combining embeddings, word counts, and additional features.
+     
+3. **Logistic Regression**:
+   - Performance: Achieved **0.70 accuracy** with default parameters, outperforming RandomForest.
+   - Strengths: Logistic Regression handles high-dimensional data efficiently when properly regularized. The linear nature of the embeddings made it well-suited for this dataset.
+   - Chosen Model: Its higher accuracy and faster convergence compared to SVC and RandomForest made Logistic Regression the preferred choice for further optimization.
+
+4. **XGBoost(Was determined to computationally expensive to run)**:
+   - Performance: Poor convergence due to the very high-dimensional data, resulting in long training times and suboptimal results.
+
+After identifying Logistic Regression as the best-performing model, we conducted **hyperparameter tuning** using **GridSearchCV** to optimize its performance.
+
+---
+
+### **Hyperparameter Tuning**
+
+The following hyperparameter grid was explored during GridSearchCV:
+- **`C`**: Inverse of regularization strength (tested values: `[0.01, 0.1, 1, 10, 100]`).
+- **`penalty`**: Regularization type (`'l2'` tested).
+- **`solver`**: Optimization solver (`'saga'` and `'lbfgs'` tested).
+- **`class_weight`**: Handling class imbalance (`None` and `'balanced'` tested).
+
+The best parameters identified were:
+```python
+Best Parameters: {'C': 0.01, 'class_weight': 'balanced', 'penalty': 'l2', 'solver': 'saga'}
+```
+
+#### **Why These Parameters Work Well**:
+1. **`C=0.01`**:
+   - Stronger regularization (`C` is the inverse of regularization strength) prevents overfitting, especially in high-dimensional data.
+2. **`class_weight='balanced'`**:
+   - Adjusts for the class imbalance by assigning higher weights to underrepresented classes, improving recall and F1-scores for these categories.
+3. **`solver='saga'`**:
+   - Optimized for large datasets and supports `l2` regularization with high-dimensional sparse data.
+
+The tuned model achieved significant improvements, especially in F1-scores for minority classes, compared to the baseline Logistic Regression model.
+
+---
+
+### **Results**
+
+#### **Classification Report**
+The final classification report highlighted key improvements:
+1. **Overall Accuracy**: Increased from **0.70** to **0.73**.
+2. **Macro Average F1-Score**: Increased from baseline values, indicating better performance across all classes, including underrepresented ones.
+3. **Underrepresented Classes**:
+   - Categories like `AGRICULTURE`, `BPO`, and `ARTS`, which initially had poor recall and F1-scores, showed marked improvement due to the use of `class_weight='balanced'`.
+
+#### **Confusion Matrix**
+The confusion matrix visualizes the true vs. predicted labels:
+1. **Diagonal Dominance**:
+   - Most predictions align along the diagonal, indicating correct classifications.
+2. **Improvements for Minority Classes**:
+   - Underrepresented categories (e.g., `AGRICULTURE`, `AUTOMOBILE`) show fewer misclassifications compared to the baseline model.
+
+---
+
+### **Key Takeaways**
+- **Logistic Regression** emerged as the best-performing model for our high-dimensional dataset due to its efficiency and compatibility with the semantic structure of SentenceTransformer embeddings.
+- **Hyperparameter Tuning** with class balancing significantly improved performance for minority classes, addressing the challenge of data imbalance effectively.
+- The combination of optimized features (resume length, semantic embeddings, and category-specific word counts) and a well-tuned Logistic Regression model provided a robust solution for resume category classification.
+
 
 ## Analysis of Visualizations
 Visualization #1
