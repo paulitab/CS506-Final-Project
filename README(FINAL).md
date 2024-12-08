@@ -53,11 +53,20 @@ This project aims to develop a machine learning model that evaluates resumes. Ty
 - Present a ranked list of recommended jobs along with visual cues on how well a resume matches each job description using similarity scores.
 
 ## Analysis of Visualizations
+Visualization #1
 ![c905cbd5-6c12-4986-b6ef-704920e486a3](https://github.com/user-attachments/assets/37314fc6-b7bf-42c0-9c39-31dad0ffff02)
 - This graph shows us a confusion matrix of the different jobs and how accurately we predicted them with our model.
 - Some jobs had high accuracy predictions, such as Accountant, Aviation, Banking, Construction, and Information-Technology.
 - Some jobs had a wider spread regarding predictions such as Apparel, Advocate, and Public-Relations.
 - And some jobs had low accuracy of predictions, like Agriculture and Arts. 
+
+Visualization #2
+<img width="851" alt="Screen Shot 2024-12-08 at 2 26 06 PM" src="https://github.com/user-attachments/assets/f63db8a9-535d-4a48-a802-f53781be1766">
+- This graph shows us a histogram of resume lengths from the database
+- Most resumes have lengths between 500 and 1500 words
+- The peak frequency is at around 1000 words, meaning most resumes in the dataset have a length of around 1000.
+- The distribution is rightly-skewed, meaning there are fewer resumes with very long lengths compared to shorter ones. 
+
 
 ## Testing The Data
 - Withhold 20% of the data for testing purposes and use the remaining 80% for model training and validation.
