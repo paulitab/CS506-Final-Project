@@ -46,3 +46,13 @@ This project aims to develop a machine learning model that evaluates resumes. Ty
 - Withhold 20% of the data for testing purposes and use the remaining 80% for model training and validation.
 - Implement cross-validation techniques to ensure the model performs well on unseen data.
 - Test the model on live job postings and resumes collected during the project to evaluate the accuracy of predictions and recommendations.
+
+
+## How to Build and Run the Code
+- This project is equipped with a makefile to automate setup and execution.
+- Follow the steps below
+  - Clone the repository to your local machine
+  - Run Make Commands (the makefile provides three command options)
+    - make install (install all required Python libraries and tools)
+    - make run (execute the project code)
+    - make all (run both make install and make run in one step)
