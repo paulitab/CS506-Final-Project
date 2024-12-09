@@ -1,20 +1,16 @@
-# Variables
-PYTHON = /usr/local/bin/python3.10
-PIP = $(PYTHON) -m pip
-NOTEBOOK = final_project_code.ipynb
-OUTPUT_NOTEBOOK = final_output.ipynb
-DEPENDENCIES = pandas numpy scikit-learn keras matplotlib sentence-transformers tqdm seaborn wordcloud jupyter
+# Makefile for running the final_project_code.ipynb notebook
 
-# Default target
-.PHONY: all
-all: install run-notebook
+.PHONY: install run clean
 
-# Install dependencies
-.PHONY: install
+# Install necessary dependencies
 install:
-	$(PIP) install $(DEPENDENCIES)
+	pip install pandas numpy matplotlib seaborn wordcloud tqdm \
+		sentence-transformers scikit-learn notebook tf-keras
 
 # Run the Jupyter Notebook
-.PHONY: run-notebook
-run-notebook:
-	jupyter nbconvert --to notebook --execute $(NOTEBOOK) --output $(OUTPUT_NOTEBOOK)
+run:
+	jupyter nbconvert --to notebook --execute final_project_code.ipynb --output final_project_output.ipynb
+
+# Clean up generated files
+clean:
+	rm -f final_project_output.ipynb
