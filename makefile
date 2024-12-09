@@ -5,7 +5,7 @@
 # Install necessary dependencies
 install:
 	pip install pandas numpy matplotlib seaborn wordcloud tqdm \
-		sentence-transformers scikit-learn notebook tf-keras
+		sentence-transformers scikit-learn notebook tf-keras plotly pytest
 
 # Run the Jupyter Notebook
 run:
