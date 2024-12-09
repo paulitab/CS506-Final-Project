@@ -9,7 +9,7 @@
   - Run Make Commands (the makefile provides three command options)
     - make install (install all required Python libraries and tools)
     - make run (execute the project code)
-    - make all (run both make install and make run in one step)
+    - make clean (delete the output file from the previous runs)
    
 ## Project Description
 This project aims to develop a machine learning model that evaluates resumes. Typically, large companies do not have enough time to open each CV, so they use machine learning algorithms for the Resume Screening task. We want to take this a step beyond and make it so that users can Pre-Screen their Resume and see future possible job titles. The model will analyze key features such as education, work experience, and skills to forecast future job roles and industries. 
