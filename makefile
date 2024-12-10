@@ -11,6 +11,10 @@ install:
 run:
 	jupyter nbconvert --to notebook --execute final_project_code.ipynb --output final_project_output.ipynb
 
+# Run the test file
+test:
+	pytest -s test_final_project.py
+
 # Clean up generated files
 clean:
 	rm -f final_project_output.ipynb
