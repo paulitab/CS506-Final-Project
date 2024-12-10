@@ -9,7 +9,7 @@
   - Run Make Commands (the makefile provides three command options)
     - make install (install all required Python libraries and tools)
     - make run (execute the project code)
-    - make clean (delete the output file from the previous runs)
+    - make all (run both make install and make run in one step)
    
 ## Project Description
 This project aims to develop a machine learning model that evaluates resumes. Typically, large companies do not have enough time to open each CV, so they use machine learning algorithms for the Resume Screening task. We want to take this a step beyond and make it so that users can Pre-Screen their Resume and see future possible job titles. The model will analyze key features such as education, work experience, and skills to forecast future job roles and industries. 
@@ -17,19 +17,14 @@ This project aims to develop a machine learning model that evaluates resumes. Ty
 ## Goals
 - Identify and compare common career paths across different industries.
 - Successfully predict the likely next job roles or industries based on a user's current experience, skills, and education.
-- Analyze how different features such as age or years of experience impact career prospects.
+- Analyze how different features such as keywords on resume or resume length relate to specifc jobs
+- Handle data imbalances
 
 ## Data To Be Collected
 - Resume Data
   - Collect resume data (text) from public sources such as Kaggle (below)
-  - The dataset will contain features such as job title, skills, education, and years of experience (depending on available datasets).
+  - The dataset will contain features such as resume_id, resume_decription, resume_html, and category
   - https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset
-
-- Job Descriptions
-  - Job descriptions will be collected using public APIs and language processing models to accurately summarize job descriptions 
-  and assign each a score based on their similarities to a candidate's resume.
-  - Job requirements may also need to be collected to determine likelihood and job
-    description more accurately.
 
 ## Data Processing and Feature Engineering
 
@@ -125,6 +120,7 @@ The confusion matrix visualizes the true vs. predicted labels:
 
 
 ## Analysis of Visualizations
+Note: Most of these visualizations are interactive so please look at jupyter notebook to see the interactive. 
 Visualization #1
 
 ![c905cbd5-6c12-4986-b6ef-704920e486a3](https://github.com/user-attachments/assets/37314fc6-b7bf-42c0-9c39-31dad0ffff02)
@@ -141,7 +137,7 @@ Visualization #2
 - This graph shows us a histogram of resume lengths from the database
 - Most resumes have lengths between 500 and 1500 words
 - The peak frequency is at around 1000 words, meaning most resumes in the dataset have a length of around 1000.
-- The distribution is rightly-skewed, meaning there are fewer resumes with very long lengths compared to shorter ones. 
+- The distribution is rightly-skewed, meaning there are fewer resumes with very long lengths compared to shorter ones.
 
 Visualization #3
 
@@ -152,4 +148,7 @@ Visualization #3
 - The provided word clouds represent key skills or terms commonly associated with three distinct domains: Information Technology, Culinary Arts, and Agriculture.
 - For the Information Technology, we will point out that the largest words are different programming languages, which aligns with this jobs importants in the IT domain.
 - For the Culinary Arts, the largest words are words that emphasize the core skills needed in designing and executing culinary offerings. This makes sense since these are the people responsible for creating a beautiful mix of creative, technical, and managerial skills.
-- The third image here shows the words relevant for Agriculture. They are the words that indicate a focus on agricultural productivity and technical expertise in farm equipment. 
+- The third image here shows the words relevant for Agriculture. They are the words that indicate a focus on agricultural productivity and technical expertise in farm equipment.
+
+
+
