@@ -8,8 +8,9 @@
   - Clone the repository to your local machine
   - Run Make Commands (the makefile provides three command options)
     - make install (install all required Python libraries and tools)
-    - make run (execute the project code, might take up to 10 minutes depending on the computer)
-    - make all (run both make install and make run in one step)
+    - make run (execute the project code, creates new jupyter notebook, **might take up to 10 minutes** depending on the computer)
+    - make test (runs the test file)
+    - make clean (removes output)
    
 ## Project Description
 This project aims to develop a machine learning model that evaluates resumes. Typically, large companies do not have enough time to open each CV, so they use machine learning algorithms for the Resume Screening task. We want to take this a step beyond and make it so that users can Pre-Screen their Resume and see future possible job titles. The model will analyze key features such as education, work experience, and skills to forecast future job roles and industries. 
