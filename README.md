@@ -119,6 +119,10 @@ The confusion matrix visualizes the true vs. predicted labels:
 - **Hyperparameter Tuning** with class balancing significantly improved performance for minority classes, addressing the challenge of data imbalance effectively.
 - The combination of optimized features (resume length, semantic embeddings, and category-specific word counts) and a well-tuned Logistic Regression model provided a robust solution for resume category classification.
 
+### **Conclusion**
+In conclusion, we successfully identified and compared career paths across various industries, uncovering similarities and differences among the job categories to build an accurate predictive model. Our machine learning model effectively predicts which of the 24 job categories a specific resume is most likely aligned with, providing insights into the industry or job that best suits the individual based on the features we engineered. We demonstrated how resumes can be analyzed to create meaningful features, enabling the model to distinguish between similar/different job categories effectively. 
+
+Additionally, we addressed data imbalances in categories like BPO, resulting in significant improvements in both accuracy and F1-score compared to our initial methods. By using balanced weights in the logistic regression classifier, we applied the inverse of the proportion as weights, enhancing the model's performance.
 
 ## Analysis of Visualizations
 **Note: Most of these visualizations are interactive so please look at jupyter notebook to see the interactive. 
