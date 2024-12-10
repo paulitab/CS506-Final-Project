@@ -121,6 +121,7 @@ The confusion matrix visualizes the true vs. predicted labels:
 
 ## Analysis of Visualizations
 Note: Most of these visualizations are interactive so please look at jupyter notebook to see the interactive. 
+Because they are interactive, you must download the jupyter notebook and run - the frozen jupyter notebook will not show the graphs
 Visualization #1
 
 ![c905cbd5-6c12-4986-b6ef-704920e486a3](https://github.com/user-attachments/assets/37314fc6-b7bf-42c0-9c39-31dad0ffff02)
