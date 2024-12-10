@@ -8,7 +8,7 @@
   - Clone the repository to your local machine
   - Run Make Commands (the makefile provides three command options)
     - make install (install all required Python libraries and tools)
-    - make run (execute the project code)
+    - make run (execute the project code, might take up to 10 minutes depending on the computer)
     - make all (run both make install and make run in one step)
    
 ## Project Description
