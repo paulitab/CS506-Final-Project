@@ -140,6 +140,13 @@ Visualization #2
 - The distribution is rightly-skewed, meaning there are fewer resumes with very long lengths compared to shorter ones.
 
 Visualization #3
+<img width="1018" alt="Screenshot 2024-12-09 at 7 17 26 PM" src="https://github.com/user-attachments/assets/653c5999-7531-40fb-a2f7-507675d5c510">
+
+- This graph shows us how us the average length for each job category. 
+- Some things to point out are that IT for example on average has 200 more words compared to Sales. 
+- The job lengths could indicate specifc jobs which in return could tell help with making a better predictive model. 
+
+Visualization #4
 
 ![5a08fd32-7d0e-4844-bb59-3c9c9ac9d716](https://github.com/user-attachments/assets/1851c6e1-09f8-4295-9c5f-16413081a3b8)
 ![7dba9983-5b7d-423e-9309-1779fe4a4845](https://github.com/user-attachments/assets/102fe83e-f9e8-4164-9ba1-e40d097ea42f)
@@ -149,6 +156,7 @@ Visualization #3
 - For the Information Technology, we will point out that the largest words are different programming languages, which aligns with this jobs importants in the IT domain.
 - For the Culinary Arts, the largest words are words that emphasize the core skills needed in designing and executing culinary offerings. This makes sense since these are the people responsible for creating a beautiful mix of creative, technical, and managerial skills.
 - The third image here shows the words relevant for Agriculture. They are the words that indicate a focus on agricultural productivity and technical expertise in farm equipment.
+- This clearly shows us that each job category has unique and frequently used words for specific categories which is a useful feature to have. 
 
 
 
